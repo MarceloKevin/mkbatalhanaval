@@ -60,22 +60,23 @@ if [[ ! -f .env && -f .env.example ]]; then
   echo "Arquivo .env criado. Edite DOMAIN, EMAIL, VITE_* e CORS_ORIGIN."
 fi
 
-mkdir -p certbot/www certbot/conf nginx/ssl
+mkdir -p nginx/host
 
-if [[ -f nginx/conf.d/app.conf.template && ! -f nginx/conf.d/app.conf ]]; then
-  cp nginx/conf.d/app.conf.template nginx/conf.d/app.conf
+if [[ ! -f .env && -f .env.example ]]; then
+  cp .env.example .env
+  echo "Arquivo .env criado. Confira DOMAIN, EMAIL e URLs https://"
 fi
 
 chmod +x scripts/*.sh 2>/dev/null || true
 
 echo ""
-echo "Servidor pronto."
+echo "Servidor pronto para o modo Nginx do HOST."
 echo ""
 echo "Próximos passos:"
 echo "  1. cd $APP_DIR"
-echo "  2. nano .env   # preencha DOMAIN, EMAIL e URLs https://"
-echo "  3. bash scripts/init-ssl.sh"
-echo "  4. docker compose -f docker-compose.prod.yml up -d --build"
+echo "  2. nano .env"
+echo "  3. sudo bash scripts/install-host-nginx.sh"
+echo "  4. Atualizações futuras: bash scripts/deploy.sh"
 echo ""
 echo "Ver status: docker compose -f docker-compose.prod.yml ps"
 echo "Ver logs:   docker compose -f docker-compose.prod.yml logs -f"
