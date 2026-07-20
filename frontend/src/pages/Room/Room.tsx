@@ -72,7 +72,7 @@ export function RoomPage() {
           room = await joinRoom(roomId);
         }
 
-        if (room?.status === 'playing' && active) {
+        if (room?.status === 'playing' && room.matchId && active) {
           navigate(`/jogando/${room.id}`);
         }
       } catch (error) {

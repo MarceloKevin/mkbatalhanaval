@@ -368,6 +368,8 @@ export class RoomService {
     const previousMatchId = room.matchId;
 
     room.matchId = null;
+    // Exit playing before recompute — computeRoomStatus treats 'playing' as sticky.
+    room.status = 'waiting';
     room.players = room.players.map((p) => ({
       ...p,
       status: p.isRoomOwner || p.isBot ? 'ready' : 'waiting',

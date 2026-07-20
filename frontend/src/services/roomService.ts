@@ -20,7 +20,7 @@ function pickAvailableColor(taken: Array<string | undefined>): string {
 }
 
 function computeRoomStatus(room: Room): RoomStatus {
-  if (room.status === 'playing') return 'playing';
+  if (room.status === 'playing' && room.matchId) return 'playing';
   const count = room.players.length;
   if (count >= room.maxPlayers) return 'full';
   if (count >= room.maxPlayers - 1) return 'almost-full';

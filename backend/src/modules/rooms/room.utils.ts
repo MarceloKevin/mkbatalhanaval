@@ -6,7 +6,7 @@ export function toPublicRoom(room: GameRoom): Omit<GameRoom, 'password'> {
 }
 
 export function computeRoomStatus(room: GameRoom): RoomStatus {
-  if (room.status === 'playing') return 'playing';
+  if (room.status === 'playing' && room.matchId) return 'playing';
   const count = room.players.length;
   if (count >= room.maxPlayers) return 'full';
   if (count >= room.maxPlayers - 1) return 'almost-full';

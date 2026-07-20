@@ -124,19 +124,29 @@ export function GamePage() {
           return;
         }
 
-        if (room.matchId) {
-          const response = await emitRequestGameState(room.matchId);
-          if (response.success && response.data?.state && active) {
-            const state = {
-              ...response.data.state,
-              players: response.data.state.players.map((player) => ({
-                ...player,
-                isCurrentUser: player.id === currentUser.id,
-              })),
-            };
-            setGame(state);
-            setSecondsLeft(state.turnDurationSeconds);
+        if (!room.matchId) {
+          if (active) {
+            setCurrentRoom(room);
+            navigate(`/sala/${room.id}`);
           }
+          return;
+        }
+
+        const response = await emitRequestGameState(room.matchId);
+        if (response.success && response.data?.state && active) {
+          const state = {
+            ...response.data.state,
+            players: response.data.state.players.map((player) => ({
+              ...player,
+              isCurrentUser: player.id === currentUser.id,
+            })),
+          };
+          setGame(state);
+          setSecondsLeft(state.turnDurationSeconds);
+        } else if (active) {
+          showToast('Partida não encontrada.', 'error');
+          navigate(`/sala/${room.id}`);
+          return;
         }
       } catch {
         if (active) {
@@ -402,7 +412,8 @@ export function GamePage() {
           response.message ?? 'Não foi possível voltar para a sala.',
         );
       }
-      // Navegação sincronizada via evento room:returned
+      // Prefer ACK navigation; room:returned keeps other clients in sync.
+      goBackToRoom(response.data.room);
     } catch (error) {
       const message =
         error instanceof Error
