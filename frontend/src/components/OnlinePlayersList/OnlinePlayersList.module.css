@@ -1,0 +1,76 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  min-height: 320px;
+  max-height: 640px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-navy);
+}
+
+.titleRow h2 {
+  font-size: 1.05rem;
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding: 0 0.4rem;
+  border-radius: var(--radius-full);
+  background: var(--color-secondary);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.85rem;
+  overflow-y: auto;
+}
+
+.skeleton {
+  height: 3.2rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    rgba(186, 230, 253, 0.4),
+    rgba(224, 242, 254, 0.8),
+    rgba(186, 230, 253, 0.4)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

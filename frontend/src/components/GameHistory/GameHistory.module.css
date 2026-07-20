@@ -1,0 +1,52 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 0;
+}
+
+.panel h3 {
+  font-size: 0.95rem;
+  color: var(--color-navy);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.item {
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.65);
+  border-left: 3px solid var(--color-secondary);
+}
+
+.hit {
+  border-left-color: var(--color-warning);
+}
+
+.miss {
+  border-left-color: var(--color-primary);
+}
+
+.destroyed {
+  border-left-color: var(--color-danger);
+}
+
+.attack,
+.system {
+  border-left-color: var(--color-dark);
+}
+
+.empty {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  padding: 0.5rem;
+}

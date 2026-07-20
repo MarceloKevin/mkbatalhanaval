@@ -1,0 +1,32 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  gap: 0.5rem;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  color: var(--color-navy);
+}
+
+.description {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  max-width: 280px;
+}

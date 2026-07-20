@@ -1,0 +1,137 @@
+.page {
+  min-height: 100vh;
+  padding: 1.25rem;
+  position: relative;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-soft);
+}
+
+.header h1 {
+  font-size: clamp(1.3rem, 4vw, 1.75rem);
+  color: var(--color-navy);
+  margin-bottom: 0.35rem;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.meta code {
+  font-size: 0.8rem;
+  background: rgba(14, 165, 233, 0.12);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.headerActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: stretch;
+  min-width: 10.5rem;
+}
+
+.panel {
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-soft);
+}
+
+.panelTop {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.panelTop h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1.1rem;
+  color: var(--color-navy);
+}
+
+.startBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.startBtn {
+  letter-spacing: 0.06em;
+}
+
+.hint {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.readyActions {
+  margin-top: 1.15rem;
+}
+
+.ownerNote {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: var(--color-dark);
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.countdownOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 89, 133, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.countdownNumber {
+  font-size: clamp(2.5rem, 12vw, 5rem);
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  animation: countdownPop 0.45s ease;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 0.85rem;
+  }
+}

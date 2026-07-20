@@ -1,0 +1,131 @@
+.page {
+  min-height: 100vh;
+  padding: 1.25rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.search {
+  flex: 1 1 240px;
+  min-width: 200px;
+}
+
+.found {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--color-glass-border);
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.rooms {
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.roomsHeader {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.roomsHeader h2 {
+  font-size: 1.05rem;
+  color: var(--color-navy);
+}
+
+.roomsBody {
+  padding: 1rem;
+}
+
+.roomGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+.skeletons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+.skeleton {
+  height: 160px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    rgba(186, 230, 253, 0.4),
+    rgba(224, 242, 254, 0.85),
+    rgba(186, 230, 253, 0.4)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 0.85rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .found {
+    text-align: center;
+  }
+}

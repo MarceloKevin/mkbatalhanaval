@@ -1,0 +1,62 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+}
+
+.mine {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.35);
+  color: #15803d;
+}
+
+.theirs {
+  background: rgba(14, 165, 233, 0.12);
+  border-color: rgba(14, 165, 233, 0.3);
+  color: var(--color-dark);
+}
+
+.urgent {
+  animation: pulseGlow 1s ease infinite;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.label {
+  flex: 1;
+  font-size: 0.92rem;
+}
+
+.countdown {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.track {
+  height: 0.45rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0.75;
+  transition: width 0.25s linear;
+}
+
+.urgent .fill {
+  background: var(--color-danger);
+  opacity: 1;
+}

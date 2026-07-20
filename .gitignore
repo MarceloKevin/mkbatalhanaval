@@ -1,0 +1,56 @@
+# Dependências
+node_modules/
+**/node_modules/
+
+# Builds
+dist/
+**/dist/
+dist-ssr/
+coverage/
+*.tsbuildinfo
+
+# Ambiente e segredos
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Certificados SSL (gerados no servidor)
+certbot/conf/**
+!certbot/conf/.gitkeep
+!certbot/conf/.gitignore
+certbot/www/**
+!certbot/www/.gitkeep
+!certbot/www/.gitignore
+nginx/ssl/*.pem
+nginx/ssl/*.key
+nginx/ssl/*.crt
+!nginx/ssl/.gitkeep
+nginx/conf.d/app.conf
+
+# Logs e SO
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Docker / local overrides
+docker-compose.override.yml
+
+# Misc
+*.local
+.turbo/
+.cache/
